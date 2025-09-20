@@ -10,6 +10,8 @@
      crossorigin=""/>
     <!-- 引入 Tailwind CSS 以便快速美化介面 -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入自定義樣式表 -->
+    <link rel="stylesheet" href="styles.css">
     <style>
         /* 確保地圖容器填滿整個視窗 */
         html, body {
@@ -184,17 +186,17 @@
                         <div class="flex items-center space-x-2"><div class="w-4 h-4 bg-blue-500 rounded-full"></div><span>患者目前位置</span></div>
                         <div class="flex items-center space-x-2"><div class="border-t-2 border-dashed border-gray-500 w-4"></div><span>預計總路徑</span></div>
                         <div class="flex items-center space-x-2"><div class="border-t-2 border-dashed border-gray-400 w-4"></div><span>路徑偏離(觀察中)</span></div>
-                        <div class="flex items-center space-x-2"><div class="w-4 h-4 bg-orange-400 opacity-80" style="width: 1rem; height: 0.25rem;"></div><span>異常徘徊(確認)</span></div>
+                        <div class="flex items-center space-x-2"><div class="legend-indicator"></div><span>異常徘徊(確認)</span></div>
                     </div>
                     <!-- 新的圖例 -->
                     <div class="pt-2">
                         <span class="text-sm font-semibold">路徑可能性預測</span>
-                        <div class="flex w-full h-4 rounded-md overflow-hidden mt-1 border">
-                            <div style="width: 20%; background-color: #27ae60;"></div>
-                            <div style="width: 20%; background-color: #2ecc71;"></div>
-                            <div style="width: 20%; background-color: #f1c40f;"></div>
-                            <div style="width: 20%; background-color: #e67e22;"></div>
-                            <div style="width: 20%; background-color: #e74c3c;"></div>
+                        <div class="legend-bar">
+                            <div class="legend-segment-1"></div>
+                            <div class="legend-segment-2"></div>
+                            <div class="legend-segment-3"></div>
+                            <div class="legend-segment-4"></div>
+                            <div class="legend-segment-5"></div>
                         </div>
                         <div class="flex justify-between text-xs text-gray-500 px-1">
                             <span>低</span>
@@ -216,7 +218,7 @@
                          <p class="text-sm text-gray-600">偵測到患者行走模式異常！</p>
                          <button onclick="showAlertOnMap()" class="mt-2 text-sm font-semibold text-blue-600 hover:underline">查看詳情</button>
                      </div>
-                     <button onclick="document.getElementById('toast-notification').classList.add('hidden')"><svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+                     <button onclick="document.getElementById('toast-notification').classList.add('hidden')" title="關閉通知" aria-label="關閉通知"><svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
                  </div>
             </div>
 
